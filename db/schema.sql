@@ -9,10 +9,10 @@ DROP TABLE IF EXISTS department;
 -- order table creation based on reliance on other tables ASC
 CREATE TABLE department (
   id INTEGER AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(50) NOT NULL,
+  dep_name VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE roles(
+CREATE TABLE roles (
   id INTEGER AUTO_INCREMENT PRIMARY KEY,
   title VARCHAR(30) NOT NULL,
   salary DECIMAL(10, 2) NOT NULL,
@@ -25,6 +25,6 @@ CREATE TABLE employee (
   first_name VARCHAR(30) NOT NULL,
   last_name VARCHAR(30) NOT NULL,
   role_id INTEGER,
-  manager_id INTEGER
+  manager_id INTEGER REFERENCES employee(id) ON DELETE SET NULL,
   CONSTRAINT fk_role FOREIGN KEY (role_id) REFERENCES roles(id) ON DELETE SET NULL
 );
