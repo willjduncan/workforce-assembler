@@ -64,7 +64,23 @@ WHEN I choose to update an employee role
 
 THEN I am prompted to select an employee to update and their new role and this information is updated in the database
 
-<!-- The final product should allow a user to type notes and for the program to save them and keep them accessible and deletable. 
+<!--  Try to add some additional functionality to your application, such as the ability to do the following:
+
+Update employee managers.
+
+View employees by manager.
+
+View employees by department.
+
+Delete departments, roles, and employees.
+
+View the total utilized budget of a department—in other words, the combined salaries of all employees in that department.
+
+
+
+
+
+The final product should allow a user to type notes and for the program to save them and keep them accessible and deletable. 
 
 After downloading the starter code, getting npm, organizing files, and adding scaffolding, remembering to include the necessary middleware, I could begin to code, beginning with the server. Once everything was prepared, I focused on routing the two html pages, index and notes. I then focused on displaying notes through the api/notes route. The POST was accomplished thanks to studying Activity 5 of the In-Class activities of Module 11, specifically how to read the data file and then append a new item to the data file without deleting what was there. I added unique ids using the UUID package through npm. 
 
