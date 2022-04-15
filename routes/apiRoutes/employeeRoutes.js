@@ -28,7 +28,7 @@ router.get('/employee/man/:id', (req, res) => {
     e1.first_name AS manager_first, e1.last_name AS manager_last 
     FROM employee e 
     LEFT JOIN employee e1 on e.manager_id = e1.id 
-    WHERE e.manager_id=? 
+    WHERE e.manager_id=? AND e1.manager_id IS NULL 
     ORDER BY e.manager_id;`;
     const params = [req.params.id];
     db.query(sql, params, (err, rows) => {
@@ -39,6 +39,7 @@ router.get('/employee/man/:id', (req, res) => {
       res.json(console.table(rows))
       });
 });
+
 
 // View employees by department.
 router.get('/employee/dep/:id', (req, res) => {
@@ -90,6 +91,28 @@ router.post('/employee', ({ body }, res) => {
             message: 'success',
             data: body
         });
+    });
+});
+
+//Update an employee's role and manager
+router.put('/employee/:id', (req, res) => {
+    const sql = `UPDATE employee SET role_id = ?, manager_id = ? WHERE id = ?`;
+    const params = [req.body.role_id, req.body.manager_id, req.params.id];
+  
+    db.query(sql, params, (err, result) => {
+      if (err) {
+        res.status(400).json({ error: err.message });
+      } else if (!result.affectedRows) {
+        res.json({
+          message: 'Voter not found'
+        });
+      } else {
+        res.json({
+          message: 'success',
+          data: req.body,
+          changes: result.affectedRows
+        });
+      }
     });
 });
 
