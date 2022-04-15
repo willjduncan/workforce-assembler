@@ -1,8 +1,11 @@
-const express = require('express');
+import express from 'express';
+import deptRoutes from './deptRoutes.js';
+import roleRoutes from './roleRoutes.js';
+import empRoutes from './employeeRoutes.js';
 const router = express.Router();
 
-router.use(require('./deptRoutes'));
-router.use(require('./roleRoutes'));
-router.use(require('./employeeRoutes'));
+router.use(deptRoutes);
+router.use(roleRoutes);
+router.use(empRoutes);
 
-module.exports = router;
+export default router;

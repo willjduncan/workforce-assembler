@@ -1,7 +1,7 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
-const db = require('../../db/connection');
-const cTable = require('console.table');
+import db from '../../db/connection.js';
+import cTable from 'console.table';
 
 // View all employees in a table
 router.get('/employee', (req, res) => {
@@ -139,4 +139,4 @@ router.delete('/employee/:id', (req, res) => {
     });
 });
 
-module.exports = router;
+export default router;

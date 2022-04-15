@@ -1,7 +1,7 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
-const db = require('../../db/connection');
-const cTable = require('console.table');
+import db from '../../db/connection.js';
+import cTable from 'console.table';
 
 // View all roles in a table
 router.get('/roles', (req, res) => {
@@ -58,4 +58,4 @@ router.delete('/roles/:id', (req, res) => {
     });
 });
 
-module.exports = router;
+export default router;

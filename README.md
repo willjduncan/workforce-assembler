@@ -64,7 +64,18 @@ WHEN I choose to update an employee role
 
 THEN I am prompted to select an employee to update and their new role and this information is updated in the database
 
-<!--  Try to add some additional functionality to your application, such as the ability to do the following:
+<!-- I found this challenge to be a particularly difficult. After setting up my sql files according to the outline provided, I began to work on the MySql requests. I had to ask for some help from a friend of mine involved in coding to begin to understand better the ins and outs of the syntax. ****I still have not found a way to send an alert if the request, say, for a manager's employee's returns an empty table because the id chosen is not that of a manager.**** 
+
+After I finally got the routes set up, I began to focus on the inquirer. Unfortunately, this also turned out to be much more challenging than anticipated. I tried to set up the inquirer so that, based on a user's choices and input, it would send fetch requests to the server. However, the terminal did not recognize my fetch function, so after much delving, I discovered I needed to download the node-fetch npm module, but then that wasn't registering, so I added "type":"module" to my package.json, and altered the prompter file to mjs from js. I then had to alter all of my imports and exports because the new system I set up didn't recognize the term "require".
+
+
+had to install node fetch
+
+
+
+
+
+ Try to add some additional functionality to your application, such as the ability to do the following:
 
 Update employee managers.
 

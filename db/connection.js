@@ -1,4 +1,4 @@
-const mysql = require('mysql2');
+import mysql from 'mysql2';
 
 // Connect to database
 const db = mysql.createConnection(
@@ -14,4 +14,4 @@ const db = mysql.createConnection(
     console.log('Connected to the election database.')
 );
 
-module.exports = db;
+export default db;

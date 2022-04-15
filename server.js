@@ -1,6 +1,7 @@
-const express = require('express');
-const db = require('./db/connection');
-const apiRoutes = require('./routes/apiRoutes');
+import express from 'express';
+import db from './db/connection.js';
+import apiRoutes from'./routes/apiRoutes/index.js';
+import WorkForce from './lib/prompter.mjs';
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -25,3 +26,6 @@ db.connect(err => {
       console.log(`Server running on port ${PORT}`);
     });
 });
+
+//Prompt user for questions
+new WorkForce().promptUser()
