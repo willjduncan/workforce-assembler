@@ -5,7 +5,9 @@ const cTable = require('console.table');
 
 // View all roles in a table
 router.get('/roles', (req, res) => {
-    const sql = `SELECT * FROM roles`;
+    const sql = `SELECT roles.*, department.dep_name AS department_name
+    FROM department
+    JOIN roles ON department.id = roles.department_id`;
     db.query(sql, (err, rows) => {
       if (err) {
         res.status(500).json({ error: err.message });

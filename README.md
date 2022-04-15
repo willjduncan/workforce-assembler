@@ -72,8 +72,6 @@ View employees by manager.
 
 View employees by department.
 
-Delete roles, and employees.
-
 View the total utilized budget of a department—in other words, the combined salaries of all employees in that department.
 
 
@@ -184,3 +182,72 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
+
+
+
+
+
+<!-- 
+WHEN I choose to view all employees
+THEN I am presented with a formatted table showing employee data, including employee ids, first names, last names, job titles, departments, salaries, and managers that the employees report to
+
+
+WHEN I choose to add a department
+THEN I am prompted to enter the name of the department and that department is added to the database
+
+
+WHEN I choose to add a role
+THEN I am prompted to enter the name, salary, and department for the role and that role is added to the database
+
+WHEN I choose to add an employee
+THEN I am prompted to enter the employee’s first name, last name, role, and manager, and that employee is added to the database
+
+
+WHEN I choose to update an employee role
+THEN I am prompted to select an employee to update and their new role and this information is updated in the database
+Update employee managers.
+View the total utilized budget of a department—in other words, the combined salaries of all employees in that department. 
+
+
+
+
+
+SELECT department, SUM(sales) AS "Total sales"
+FROM order_details
+GROUP BY department;
+
+SELECT SUM(roles.salary) AS total_salaries,
+     department.dep_name AS department 
+     FROM employee 
+     INNER JOIN roles ON employee.role_id = roles.id 
+     INNER JOIN department ON roles.department_id = department.id 
+     ORDER BY department.id;
+
+SELECT department.dep_name AS department, SUM(roles.salary) AS total_salaries 
+     FROM employee 
+     INNER JOIN roles ON employee.role_id = roles.id 
+     INNER JOIN department ON roles.department_id = department.id 
+     GROUP BY department.id;
+
+
+
+
+
+View employees by manager.
+SELECT e.id, e.first_name as employee_first, e.last_name as employee_last, e.manager_id, e1.first_name as manager_first, e1.last_name as manager_last from employee e left join employee e1 on e.manager_id = e1.id WHERE e.manager_id=1 ORDER BY e.manager_id;
+
+SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
+
+
+View employees by department.
+SELECT employee.id, employee.first_name as employee_first, employee.last_name as employee_last, department.dep_name AS department from employee inner join roles on employee.role_id = roles.id inner join department on roles.department_id = department.id WHERE department.id=1 ORDER BY department.id;
+
+
+select e.id, e.first_name as employee_first, e.last_name as employee_last, e1.first_name as manager_first, e1.last_name as manager_last, roles.title AS role_title, roles.salary, department.dep_name AS department from employee e left join employee e1 on e.manager_id = e1.id inner join roles on e.role_id = roles.id inner join department on roles.department_id = department.id;
+
+
+SELECT roles.*, department.dep_name AS department_name
+FROM department
+JOIN roles ON department.id = roles.department_id;
+
+-->
