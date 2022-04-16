@@ -26,7 +26,7 @@ I WANT to be able to view and manage the departments, roles, and employees in my
 
 SO THAT I can organize and plan my business
 
-<!-- Note Taker is a program that allows a user to write, keep, and delete notes. The challenge is meant to test my ability to create the backend of a website and combine it with the frontend. It will prove my full-stack coding chops while giving me a chance to better my skills at Node and Express.js and become more familiar with Insomnia for testing.  -->
+Workforce Assembler is a program that allows a user to organize and store his/her organization's employee data. The challene is meant to combine everything I've learned about the back end so far, from earlier modules involving inquirer to the ability to create and fetch from databases using SQL. It will take good googling skills to assemble what I've learned into one cohesive program as well. 
 
 Once complete, the program should operate so that:
 
@@ -68,8 +68,7 @@ THEN I am prompted to select an employee to update and their new role and this i
 
 After I finally got the routes set up, I began to focus on the inquirer. Unfortunately, this also turned out to be much more challenging than anticipated. I tried to set up the inquirer so that, based on a user's choices and input, it would send fetch requests to the server. However, the terminal did not recognize my fetch function, so after much delving, I discovered I needed to download the node-fetch npm module, but then that wasn't registering, so I added "type":"module" to my package.json, and altered the prompter file to mjs from js. I then had to alter all of my imports and exports because the new system I set up didn't recognize the term "require".
 
-
-had to install node fetch
+Once that was sorted, writing the functions went smoothly. 
 
 
 
