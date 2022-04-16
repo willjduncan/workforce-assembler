@@ -17,6 +17,7 @@ CREATE TABLE roles (
   title VARCHAR(30) NOT NULL,
   salary DECIMAL(10, 2) NOT NULL,
   department_id INTEGER,
+--   connect roles.department_id to department.id
   CONSTRAINT fk_department FOREIGN KEY (department_id) REFERENCES department(id) ON DELETE SET NULL
 );
 
@@ -25,6 +26,8 @@ CREATE TABLE employee (
   first_name VARCHAR(30) NOT NULL,
   last_name VARCHAR(30) NOT NULL,
   role_id INTEGER,
+--   connect employee.manager_id to the employee's id within the same table
   manager_id INTEGER REFERENCES employee(id) ON DELETE SET NULL,
+--   connect employee.role_id to roles.id
   CONSTRAINT fk_role FOREIGN KEY (role_id) REFERENCES roles(id) ON DELETE SET NULL
 );
