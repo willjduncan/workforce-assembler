@@ -80,7 +80,7 @@ View employees by department.
 
 View the total utilized budget of each department.
 
-Adding them at the beginning made the coding easier, because it meant I could finish and test all routes before focusing on trying to get inquirer to work. 
+Adding them at the beginning made the coding easier, because it meant I could finish and test all routes before focusing on trying to get inquirer to work. Once the basic functionality was complete, I refactored the inquirer code, placing it into separate files. 
 
 
 
@@ -96,24 +96,20 @@ While this project's repository is available on Github, but it does not have a f
 
 ## Usage
 
-<!-- Once the project is cloned and the dependencies downloaded, type "npm start" to run the program. 
+Once the project is cloned and the dependencies downloaded, type "npm start" to run the program. 
 
 A screenshot of the program in action is shown below;
 
 ![screenshot of Active Site](/images/screenshot-active.png)
 
-Screenshots of the server.js file and the employeeRoutes.js file are below: 
+Screenshots of the Employee.mjs file and the employeeRoutes.js file are below: 
 
-![screenshot of prompter](/images/screenshot-prompter.png)
-![screenshot of employeeRoutes](/images/screenshot-employeeRoutes.png)
-
-A screenshot of Insomnia at work is also included, showing that the API fetch of note data works
-
-![screenshot of Insomnia](/images/screenshot-insomnia.png) 
+![screenshot of Employee.mjs](/images/screenshot-emp-mjs.png)
+![screenshot of employeeRoutes](/images/screenshot-emp-routes.png)
 
 A video explaining and demonstrating the app's functionality is below:
 
-[https://drive.google.com/file/d/1fpUPzZ8xsgI8BrnhTcdO_vuMhYNBl-P1/view](https://drive.google.com/file/d/1fpUPzZ8xsgI8BrnhTcdO_vuMhYNBl-P1/view)-->
+[https://drive.google.com/file/d/1JNGO7VeioG-pQlIhTpD2w3Q7CdHCPZYn/view](https://drive.google.com/file/d/1JNGO7VeioG-pQlIhTpD2w3Q7CdHCPZYn/view)
 
 
 ## Credits
@@ -179,38 +175,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-
-
-
-
-
-<!-- 
-LEFT TO DO
-Refactor
-screenshots
-video
-
-
-
-Select 
-IF (EXISTS    
-    (
-    SELECT e.id, e.first_name AS employee_first, e.last_name AS employee_last, e.manager_id, 
-    e1.first_name AS manager_first, e1.last_name AS manager_last 
-    FROM employee e 
-    LEFT JOIN employee e1 on e.manager_id = e1.id 
-    WHERE e.manager_id=1 AND e1.manager_id IS NULL 
-    ),
-    (SELECT e.id, e.first_name AS employee_first, e.last_name AS employee_last, e.manager_id, 
-    e1.first_name AS manager_first, e1.last_name AS manager_last 
-    FROM employee e 
-    LEFT JOIN employee e1 on e.manager_id = e1.id 
-    WHERE e.manager_id=1 AND e1.manager_id IS NULL 
-    ORDER BY e.manager_id),
-           (RAISERROR('Manager not found!', 1, 1)));
-
-
-
-
--->

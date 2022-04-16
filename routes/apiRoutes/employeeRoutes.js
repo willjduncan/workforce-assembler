@@ -20,8 +20,6 @@ router.get('/employee', (req, res) => {
       });
 });
 
-
-
 // View employees by manager.
 router.get('/employee/man/:id', (req, res) => {
     const sql = `SELECT e.id, e.first_name AS employee_first, e.last_name AS employee_last, e.manager_id, 
@@ -39,7 +37,6 @@ router.get('/employee/man/:id', (req, res) => {
       res.json(console.table(rows))
       });
 });
-
 
 // View employees by department.
 router.get('/employee/dep/:id', (req, res) => {
@@ -76,7 +73,6 @@ router.get('/employee/sal', (req, res) => {
       });
 });
 
-
 // Create a new employee
 router.post('/employee', ({ body }, res) => {
     const sql = `INSERT INTO employee (first_name, last_name, role_id, manager_id)
@@ -98,13 +94,12 @@ router.post('/employee', ({ body }, res) => {
 router.put('/employee/:id', (req, res) => {
     const sql = `UPDATE employee SET role_id = ?, manager_id = ? WHERE id = ?`;
     const params = [req.body.role_id, req.body.manager_id, req.params.id];
-  
     db.query(sql, params, (err, result) => {
       if (err) {
         res.status(400).json({ error: err.message });
       } else if (!result.affectedRows) {
         res.json({
-          message: 'Voter not found'
+          message: 'Employee not found'
         });
       } else {
         res.json({
@@ -115,7 +110,6 @@ router.put('/employee/:id', (req, res) => {
       }
     });
 });
-
 
 // Delete employee
 router.delete('/employee/:id', (req, res) => {
